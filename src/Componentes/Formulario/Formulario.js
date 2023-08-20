@@ -2,47 +2,62 @@ import "./Formulario.css";
 import CampoFormulario from "../CampoFormulario/CampoFormulario";
 import ListaSuspensa from "../ListaSuspensa/ListaSuspensa";
 import Botao from "../Botao/Botao";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Formulario(props) {
   const divisoes = [1, 2, 3, 4, 5];
-  const [nome, setNome] = useState("");
-  const [urlImagem, seturlImagem] = useState("");
+
   const [pais, setPais] = useState("");
   const [quantidade, setQuantidade] = useState(20);
   const [divisao, setDivisao] = useState(divisoes[0]);
   const [continente, setContinente] = useState(props.continentes[0]);
+  const [nomeCampeonato, setNomeCampeonato] = useState(
+    props.campeonatosUrls[0].nome
+  );
+  const [urlImagem, seturlImagem] = useState("");
 
   const zerarCamposFormulario = function () {
-    setNome("");
-    seturlImagem("");
     setPais("");
     setQuantidade(20);
     setDivisao(divisoes[0]);
     setContinente(props.continentes[0]);
+    setNomeCampeonato(props.campeonatosUrls[0].nome);
   };
+
+  const buscaUrl = function (nomeCampeonato) {
+    var camp = props.campeonatosUrls.filter(
+      (camp) => camp.nome === nomeCampeonato
+    );
+    seturlImagem(camp[0].url);
+  };
+
+  useEffect(() => {
+    buscaUrl(nomeCampeonato);
+  }, [nomeCampeonato, pais]);
 
   const enviarFormulario = (evento) => {
     evento.preventDefault();
+
     console.log(
       "Formulario -> ",
-      nome,
-      urlImagem,
+      nomeCampeonato,
+      buscaUrl(nomeCampeonato),
       continente,
       pais,
       quantidade,
       divisao
     );
 
-    const campeonato = {
-      nome,
-      urlImagem,
+    const campeonatoSalvo = {
+      nomeCampeonato,
       continente,
       pais,
+      urlImagem,
       quantidade,
       divisao,
     };
-    props.salvarFormulario(campeonato);
+    console.log(campeonatoSalvo);
+    props.salvarFormulario(campeonatoSalvo);
     zerarCamposFormulario();
   };
 
@@ -50,23 +65,12 @@ export default function Formulario(props) {
     <section className="formulario">
       <form onSubmit={enviarFormulario}>
         <h1>{props.titulo}</h1>
-        <CampoFormulario
-          classname="campo-texto"
-          type="text"
-          label="Nome"
-          placeholder="Digite o nome do campeonato"
-          obrigatorio={true}
-          valor={nome}
-          alterouCampo={(valor) => setNome(valor)}
-        />
-        <CampoFormulario
-          classname="campo-texto"
-          type="text"
-          label="URL Imagem"
-          placeholder="Digite a URL da imagem do Campeonato"
-          obrigatorio={true}
-          valor={urlImagem}
-          alterouCampo={(valor) => seturlImagem(valor)}
+        <ListaSuspensa
+          label="Campeonatos"
+          itens={props.campeonatosUrls.map((comp) => comp.nome)}
+          $obrigatorio={true}
+          valor={nomeCampeonato}
+          alterouCampo={(valor) => setNomeCampeonato(valor)}
         />
         <ListaSuspensa
           label="Continente"

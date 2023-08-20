@@ -9,12 +9,12 @@ const CampoFormulario = (props) => {
     <div className="campo-formulario">
       <label> {props.label} </label>
       <input
+        required={props.obrigatorio}
         value={props.valor}
         onChange={aoDigitar}
         className={props.classname}
         type={props.type}
         placeholder={props.placeholder}
-        required={props.obrigatorio}
         min={1}
         max={40}
       />

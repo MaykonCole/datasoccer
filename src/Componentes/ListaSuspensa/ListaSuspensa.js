@@ -9,7 +9,7 @@ export default function ListaSuspensa(props) {
     <div className="lista-suspensa">
       <label>{props.label}</label>
       <select
-        required={props.obrigatorio}
+        required={props.required}
         onChange={alterouCampo}
         value={props.valor}
       >

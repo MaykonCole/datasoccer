@@ -11,8 +11,8 @@ export default function Continente(props) {
         <div className="campeonatos">
           {props.campeonatos.map((camp) => (
             <Campeonato
-              key={camp.nome}
-              nomeCampeonato={camp.nome}
+              key={camp.urlImagem}
+              nomeCampeonato={camp.pais}
               quantEquipes={camp.quantidade}
               urlImagem={camp.urlImagem}
               corDeFundo={props.corPrimaria}

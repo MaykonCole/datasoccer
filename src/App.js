@@ -5,6 +5,54 @@ import { useState } from "react";
 import Continente from "./Componentes/Continente/Continente";
 
 function App() {
+
+  const campeonatosUrls = [
+    {
+      nome: "Brasileirão",
+      url: "https://static.flashscore.com/res/image/data/WjWuNoU1-0Wa6qdtI.png"
+    },
+    {
+      nome: "La Liga",
+      url: "https://static.flashscore.com/res/image/data/8tslw3T1-8AUkVLDE.png"
+    },
+    {
+      nome: "Série A",
+      url: "https://static.flashscore.com/res/image/data/pv8pwbmd-r3RNQp13.png"
+    },
+    {
+      nome: "Liga MX",
+      url: "https://static.flashscore.com/res/image/data/rmBkYwEO-ptBqq0eE.png"
+    },
+    {
+      nome: "Liga Professional",
+      url: "https://static.flashscore.com/res/image/data/xxybedDO-dvBaf7jc.png"
+    },
+    {
+      nome: "Bundesliga",
+      url: "https://static.flashscore.com/res/image/data/8EfUidTp-fwPHGLfg.png"
+    },
+    {
+      nome: "Bundesliga II",
+      url: "https://static.flashscore.com/res/image/data/SAoSGa8j-fwPHGLfg.png"
+    },
+    {
+      nome: "Brasileirão Série B",
+      url: "https://static.flashscore.com/res/image/data/nPLAPg8j-xtaWZIy1.png"
+    },
+    {
+      nome: "Ligue One",
+      url: "https://static.flashscore.com/res/image/data/ObraZoiD-8Mz70lmb.png"
+    },
+    {
+      nome: "Championship",
+      url: "https://static.flashscore.com/res/image/data/rJeHdvRp-SzPY38y0.png"
+    },
+    {
+      nome: "Premier League",
+      url: "https://static.flashscore.com/res/image/data/IsTqKakD-ERmIF5zC.png"
+    },
+  ];
+
   const continentes = [
     {
       nome: "América",
@@ -35,7 +83,7 @@ function App() {
   const [campeonatos, setCampeonatos] = useState([]);
 
   const addNovoCampeonato = (campeonato) => {
-    console.log("APP -> ", campeonato);
+    //console.log("APP -> ", campeonato);
     setCampeonatos([...campeonatos, campeonato]);
   };
 
@@ -46,6 +94,7 @@ function App() {
         <Formulario
           titulo="Preencha os campos para criar um novo campeonato"
           continentes={continentes.map((continente) => continente.nome)}
+          campeonatosUrls={campeonatosUrls}
           salvarFormulario={(campeonato) => addNovoCampeonato(campeonato)}
         />
         {continentes.map((continente) => (
