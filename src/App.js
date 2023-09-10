@@ -12,8 +12,16 @@ function App() {
       url: "https://static.flashscore.com/res/image/data/WjWuNoU1-0Wa6qdtI.png"
     },
     {
+      nome: "Egyptian Premier League",
+      url: "https://static.flashscore.com/res/image/data/0rKZm2hU-IJvaKHzf.png"
+    },
+    {
       nome: "La Liga",
       url: "https://static.flashscore.com/res/image/data/8tslw3T1-8AUkVLDE.png"
+    },
+    {
+      nome: "National League",
+      url: "https://static.flashscore.com/res/image/data/n17bumkD-pOsOhLO3.png"
     },
     {
       nome: "Série A",
@@ -24,12 +32,20 @@ function App() {
       url: "https://static.flashscore.com/res/image/data/rmBkYwEO-ptBqq0eE.png"
     },
     {
+      nome: "Super League",
+      url: "https://static.flashscore.com/res/image/data/GfrkdPTp-SUBNYNAR.png"
+    },
+    {
       nome: "Liga Professional",
       url: "https://static.flashscore.com/res/image/data/xxybedDO-dvBaf7jc.png"
     },
     {
       nome: "Bundesliga",
       url: "https://static.flashscore.com/res/image/data/8EfUidTp-fwPHGLfg.png"
+    },
+    {
+      nome: "Liga J1",
+      url: "https://static.flashscore.com/res/image/data/6F7NbhiD-04klE5nR.png"
     },
     {
       nome: "Bundesliga II",
@@ -46,6 +62,10 @@ function App() {
     {
       nome: "Championship",
       url: "https://static.flashscore.com/res/image/data/rJeHdvRp-SzPY38y0.png"
+    },
+    {
+      nome: "A-League",
+      url: "https://static.flashscore.com/res/image/data/EB34qFYI-vBMSgqVk.png"
     },
     {
       nome: "Premier League",

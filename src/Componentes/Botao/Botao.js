@@ -1,5 +1,8 @@
 import "./Botao.css";
 
 export default function Botao(props) {
-  return <button className="botao">{props.children}</button>;
-}
+  return (
+  <div className="caixa-botoes">
+    <button style={{backgroundColor: props.cor}} className="botao">{props.children}</button>
+  </div>
+)}

@@ -104,7 +104,7 @@ export default function Formulario(props) {
           valor={divisao}
           alterouCampo={(valor) => setDivisao(valor)}
         />
-        <Botao>Criar Campeonato</Botao>
+        <Botao cor={"#008000"}>Criar Campeonato</Botao>
       </form>
     </section>
   );
